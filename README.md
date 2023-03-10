@@ -139,26 +139,26 @@ public class SubclassB extends Superclass {
 ### Member Access In Different Package
 
 `ClassC` is contained in a different package as `Superclass` and is not a subclass.
+Notice the `import` statement is used to specify the path to class `Superclass`. 
 
 The method `testAccess()` shows that only the `public` instance variable
 can be accessed within `ClassC`.
 
 ```java
 package p2;
-import p1.*;
+import p1.Superclass;
 
 public class ClassC {
 
     public void testAccess() {
-        //test field access on another object
         Superclass o = new Superclass();
         o.publicField = "can access in any class";
     }
 }
-
 ```
 
 `SubclassD` is contained in a different package as `Superclass` and is a subclass.
+The `import` statement is again used to specify the path to class `Superclass`.
 
 Like all the other classes, we can access the `public` field.
 However, the `protected` field can only be accessed within the same object,
